@@ -702,6 +702,9 @@ select {
 .h-6 {
   height: 1.5rem;
 }
+.h-24 {
+  height: 6rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -887,6 +890,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -934,6 +941,14 @@ select {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 .pt-8 {
   padding-top: 2rem;
@@ -1063,6 +1078,14 @@ select {
 .text-indigo-700 {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
+}
+.text-gray-100 {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity));
+}
+.text-yellow-800 {
+  --tw-text-opacity: 1;
+  color: rgb(133 77 14 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1374,6 +1397,14 @@ select {
   }
 }
 @media (min-width: 768px) {
+
+  .md\:relative {
+    position: relative;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
