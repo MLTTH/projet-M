@@ -55,5 +55,15 @@
     @endfor
     </div>
 
+
+    {{-- FOOTER --}}
+    <footer class="ml-2 md:flex justify-center">
+        <div class="md:grid grid-rows-{4} grid-flow-col gap-4 m-4 max-w-md">
+            <div class="mt-6 mr-4">A propos</div>
+            <div class="mt-6 mr-4">Contact</div>
+            <div class="mt-6 mr-4">Designed by Thi N.</div>
+            <div class="mt-6 mr-4">2022</div>
+        </div>
+        </footer>
 </body>
 </html>
