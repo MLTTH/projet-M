@@ -68,6 +68,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('offer_images') => storage_path('app/offer_images'), //symbolic link to display images
     ],
 
 ];

@@ -4,24 +4,24 @@
     
     {{-- CARD --}}
     <div class="grid grid-cols-4 gap-4 p-4">
-        @for($i=0; $i<4;$i++)
-        <a href="/offer/1">
+        @foreach($offers as $o)
+        <a href="/offer/{{$o->id}}">
         <div class="m4 bg-white rounded shadow overflow-hidden">
             {{-- <img src="" alt=""> --}}
-            <img src="https://picsum.photos/300/300" alt="">
+            <img src="{{$o->image_url}}" alt="">
 
             {{-- CARD DESCRIPTION --}}
             <div class="p-4">
-                <div class="text-sm font-semibold">Titre</div>
-                <div class="text-sm font-semibold">Texte</div>
+                <div class="text-sm font-semibold">{{$o->title}}</div>
+                <div class="text-sm font-semibold">{{$o->people}}</div>
             </div>
             <div class="border-t px-4 py-2">
             {{-- CARD RENT PRICE --}}
-                <div class="text-sm font-semibold">Prix</div>
+                <div class="text-sm font-semibold">{{$o->rent}}</div>
             </div>
         </div>
     </a>
-    @endfor
+    @endforeach
     </div>
 
 </x-custom-base-layout>
