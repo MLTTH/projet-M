@@ -8,10 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class OffersController extends Controller
 {
+    //Fetch all offers available
+    public function index(){
+        $offers = Offer::all();
+        return view('offers')->with('offers', $offers); 
+    }
+
+
     //Store offer information on the database_path
     public function store(Request $request){
-        //validate the inputs
-        //https://laravel.com/docs/8.x/validation#available-validation-rules
+        //validate the inputs https://laravel.com/docs/8.x/validation#available-validation-rules
         $request->validate([
             'title'=>'required',
             'people'=>'required|numeric',

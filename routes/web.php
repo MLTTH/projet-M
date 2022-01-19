@@ -14,9 +14,7 @@ use App\Http\Controllers\OffersController;
 |
 */
 
-Route::get('/', function () {
-    return view('offers');
-});
+Route::get('/', [OffersController::class, 'index']);
 
 
 Route::get('/dashboard', function () {
