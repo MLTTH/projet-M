@@ -119,4 +119,11 @@ class OffersController extends Controller
     $offer->save();
     return redirect('/offer/'.$offer-id);
 }
+
+    // Delete an add
+    public function destroy($id){
+        $offer=Offer::find($id);
+        $offer->delete();
+        return redirect()->action([OffersController::class, 'showOwnOffers']);
+    }
 }
