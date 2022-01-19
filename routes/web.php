@@ -17,9 +17,7 @@ use App\Http\Controllers\OffersController;
 Route::get('/', [OffersController::class, 'index']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [OffersController::class, 'showOwnOffers'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/offer/{id}', [OffersController::class, 'show']);
 

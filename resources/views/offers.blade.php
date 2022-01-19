@@ -1,6 +1,4 @@
 <x-custom-base-layout>
-
-    <h1>hello</h1>
     
     {{-- CARD --}}
     <div class="grid grid-cols-4 gap-4 p-4">
@@ -23,5 +21,8 @@
     </a>
     @endforeach
     </div>
+
+{{-- pagination --}}
+<div class="p-6">{{$offers->links()}}</div>
 
 </x-custom-base-layout>

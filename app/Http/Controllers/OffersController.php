@@ -10,8 +10,15 @@ class OffersController extends Controller
 {
     //Fetch all offers items
     public function index(){
-        $offers = Offer::orderBy('created_at', 'desc')->get();
+        $offers = Offer::orderBy('created_at', 'desc')->paginate(16);
         return view('offers')->with('offers', $offers); 
+    }
+
+
+    //Fetch own offers to display on own dashboard
+    public function showOwnOffers(){
+        $offers = Offer::where('user_id',Auth::id())->orderBy('created_at','desc')->get(); //user & id of the user logged in are matching
+        return view('dashboard')->with('offers',$offers);
     }
 
     //Fetch a product by id reset
