@@ -7,6 +7,19 @@
     </div>
     {{-- RIGHT --}}
     <div class="w-1/2 rounded bg-white ml-2 p-4 shadow relative">
+
+
+    {{-- Allow logged in user to modify and delete his own add --}}
+        @if(Auth::id()==$offer->user->id)
+            <div class="flex m-4">
+            <a href="/edit/{{$offer->id}}">
+                <div class="bg-blue-500 rounded-full shadow text-xs text-white ">Modifier</div>
+            </a>
+            <a href="/delete/{{$offer->id}}">
+                <div class="bg-blue-500 rounded-full shadow text-xs text-white ">Supprimer</div>
+            </a>
+            </div>
+        @endif
         <div class="p-4">
             <div class="font-semibold">{{$offer->title}}</div>
             <div class="text-sm text-gray-500">{{$offer->people}}</div>

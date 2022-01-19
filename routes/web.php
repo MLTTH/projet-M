@@ -28,4 +28,8 @@ Route::get('/add', function () {
 
 Route::post('/offer', [OffersController::class, 'store']);
 
+Route::get('edit/{id}', [OffersController::class, 'edit'])->middleware('auth');
+
+Route::post('update/{id}', [OffersController::class, 'update'])->middleware('auth');//send change after editing
+
 require __DIR__.'/auth.php';

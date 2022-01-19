@@ -73,6 +73,50 @@ class OffersController extends Controller
 
         //redirect to the offer
         return redirect('/offer/' .$offer->id);
-        
+
     }
+
+    // edit own adds
+    public function edit($id){
+    $offer=Offer::find($id); //call find fct of the Model
+    return view('edit')->with('offer',$offer);
+    }
+
+    public function update(Request $request,$id){
+    $request->validate([
+        'rent'=>'numeric'
+    ]); 
+    $offer = Offer::find($id);
+    if($request->hasFile('img')) {
+        $path=$request->file('img')->store('offer_images');
+    }
+    //make sure inputs are not empty
+    if(!empty($request->input('title')))
+    {
+        $offer->title=$request->input('title');
+    }
+
+    if(!empty($request->input('people')))
+    {
+        $offer->title=$request->input('people');
+    }
+
+    if(!empty($request->input('rent')))
+    {
+        $offer->title=$request->input('rent');
+    }
+
+    if(!empty($request->input('desc-full')))
+    {
+        $offer->title=$request->input('desc-full');
+    }
+
+    if(!empty($request->input('squaremeter')))
+    {
+        $offer->title=$request->input('squaremeter');
+    }
+
+    $offer->save();
+    return redirect('/offer/'.$offer-id);
+}
 }
