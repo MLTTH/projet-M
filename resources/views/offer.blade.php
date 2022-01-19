@@ -3,7 +3,7 @@
 <div class="flex m-4">
     {{-- LEFT --}}
     <div class="w-1/2 rounded shadow overflow-hidden">
-        <img classe="object-cover w-full" src="{{$offer->image_url}}" alt="">
+        <img classe="object-cover w-full" src="{{asset($offer->image_url)}}" alt="">
     </div>
     {{-- RIGHT --}}
     <div class="w-1/2 rounded bg-white ml-2 p-4 shadow relative">
@@ -17,13 +17,13 @@
         <div class="border-t px-4 py-2">
         {{-- ROOMATE INFO --}}
             <div class="text-sm font-semibold text-gray">Proposé par :</div>
-            <div class="text-sm text-gray-500">{{$offer->user_id}}</div>
+            <div class="text-sm text-gray-500">{{$offer->user->name}}</div>
         </div>
 
         <div class="px-4 py-2">
             <div class="text-sm font-semibold text-gray">Téléphone :</div>
             @auth
-            <div class="text-sm text-gray-500">0600000038</div>
+            <div class="text-sm text-gray-500">{{$offer->user->phone}}</div>
             @else
             <div class="text-sm text-gray-500">********</div>
             @endauth
@@ -32,7 +32,7 @@
         <div class="px-4 py-2">
             <div class="text-sm font-semibold text-gray">Email :</div>
             @auth
-            <div class="text-sm text-gray-500">{{$offer->email}}</div>
+            <div class="text-sm text-gray-500">{{$offer->user->email}}</div>
             @else
             <div class="text-sm text-gray-500">******@**********.***</div>
             @endauth
