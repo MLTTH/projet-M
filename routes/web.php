@@ -26,4 +26,8 @@ Route::get('/offer/{id}', function () {
     return view('offer');
 });
 
+Route::get('/add', function () {
+    return view('add');
+});
+
 require __DIR__.'/auth.php';
