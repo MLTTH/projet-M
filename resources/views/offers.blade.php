@@ -8,12 +8,12 @@
         <a href="/offer/{{$o->id}}">
         <div class="m4 bg-white rounded shadow overflow-hidden">
             {{-- <img src="" alt=""> --}}
-            <img src="{{$o->image_url}}" alt="">
+            <img src="{{$o->image_url}}" class="h-72 object-cover w-full">
 
             {{-- CARD DESCRIPTION --}}
             <div class="p-4">
                 <div class="text-sm font-semibold">{{$o->title}}</div>
-                <div class="text-sm font-semibold">{{$o->people}}</div>
+                <div class="text-sm text-gray h-8">{{$o->people}}</div>
             </div>
             <div class="border-t px-4 py-2">
             {{-- CARD RENT PRICE --}}

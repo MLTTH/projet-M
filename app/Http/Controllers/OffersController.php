@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class OffersController extends Controller
 {
-    //Fetch all offers available
+    //Fetch all offers items
     public function index(){
-        $offers = Offer::all();
+        $offers = Offer::orderBy('created_at', 'desc')->get();
         return view('offers')->with('offers', $offers); 
     }
 

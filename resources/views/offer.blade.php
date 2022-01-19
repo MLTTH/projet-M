@@ -3,7 +3,7 @@
 <div class="flex m-4">
     {{-- LEFT --}}
     <div class="w-1/2 rounded shadow overflow-hidden">
-        <img classe="object-cover w-full" src="{{asset($offer->image_url)}}" alt="">
+        <img classe="object-cover w-full h-96" src="{{asset($offer->image_url)}}" alt="">
     </div>
     {{-- RIGHT --}}
     <div class="w-1/2 rounded bg-white ml-2 p-4 shadow relative">
