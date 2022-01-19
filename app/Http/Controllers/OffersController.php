@@ -14,6 +14,11 @@ class OffersController extends Controller
         return view('offers')->with('offers', $offers); 
     }
 
+    //Fetch a product by id reset
+    public function show($id){
+        $offer = Offer::find($id);
+        return view('offer')->with('offer', $offer);
+    }
 
     //Store offer information on the database_path
     public function store(Request $request){

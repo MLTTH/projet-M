@@ -21,9 +21,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/offer/{id}', function () {
-    return view('offer');
-});
+Route::get('/offer/{id}', [OffersController::class, 'show']);
+
 
 Route::get('/add', function () {
     return view('add');
