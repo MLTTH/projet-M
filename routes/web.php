@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OffersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/offer/{id}', function () {
 
 Route::get('/add', function () {
     return view('add');
-});
+})->middleware('auth'); //only logged in users can add an offer
+
+Route::post('/offer', [OffersController::class, 'store']);
 
 require __DIR__.'/auth.php';
