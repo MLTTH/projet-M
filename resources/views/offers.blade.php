@@ -1,5 +1,6 @@
 <x-custom-base-layout>
-    
+
+@include('components/custom-header-pic-bg')
 @include('components/custom-each-offer')
 
 

@@ -1,4 +1,5 @@
 <x-custom-base-layout>
+    @include('components/custom-nav')
     <x-form-container-card>
 
 

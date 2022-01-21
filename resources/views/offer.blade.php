@@ -1,4 +1,6 @@
 <x-custom-base-layout>
+    @include('components/custom-nav')
+
     {{-- MAIN CONTENT --}}
 <div class="flex m-4">
     {{-- LEFT --}}

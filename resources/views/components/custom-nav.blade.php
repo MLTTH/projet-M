@@ -8,9 +8,20 @@
     <div class="md:relative"> 
         @if (Route::has('login'))
         <div>
-            <a href="{{ url('/add') }}" class="py-2 px-3 bg-yellow-400 text-yellow-800 rounded">Ajouter</a>
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="py-2 px-3 bg-yellow-400 text-yellow-800 rounded">Tableau de bord</a>
+            @auth
+            <a href="{{ url('/add') }}" class="py-2 px-3 bg-yellow-400 text-yellow-800 rounded">Poster une annonce</a>
+            <a href="{{ url('/dashboard') }}" class="py-2 px-3 bg-yellow-400 text-yellow-800 rounded">Tableau de bord</a>
+            <form class="py-2 px-3 text-red-500" method="POST" action="{{ route('logout') }}">
+          
+
+                @csrf
+
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-dropdown-link>
+                    </form>
                     @else
                     <a href="{{ route('login') }}" class="py-5 px-3">Se connecter</a>
                     @if (Route::has('register'))
