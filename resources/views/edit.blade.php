@@ -15,7 +15,10 @@
 
         {{--  --}}
         <x-slot name="title">
-            Modifiez votre annonce
+            <div class="text-center text-amber-500 text-5xl font-bold">
+                <h1>Modifier votre annonce</h1>
+                <p class="text-xs">Tous les champs doivent être renseignés</p>
+                </div>
         </x-slot>
 
 

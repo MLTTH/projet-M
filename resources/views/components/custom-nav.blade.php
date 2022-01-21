@@ -9,10 +9,12 @@
         @if (Route::has('login'))
         <div>
             @auth
-            <a href="{{ url('/add') }}" class="py-2 px-3 bg-yellow-400 text-yellow-800 rounded">Poster une annonce</a>
-            <a href="{{ url('/dashboard') }}" class="py-2 px-3 bg-yellow-400 text-yellow-800 rounded">Tableau de bord</a>
-            <form class="py-2 px-3 text-red-500" method="POST" action="{{ route('logout') }}">
-          
+            <div>
+            <a href="{{ url('/add') }}" class="py-2 px-3 text-cyan-600 font-bold">Poster une annonce</a>
+            <a href="{{ url('/dashboard') }}" class="py-2 px-3 text-cyan-600 font-bold">Tableau de bord</a>
+            <form class="py-2 px-3 " method="POST" action="{{ route('logout') }}">
+            
+            </div>
 
                 @csrf
 
