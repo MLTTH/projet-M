@@ -14,7 +14,10 @@
 
         {{--  --}}
         <x-slot name="title">
-            Annonce
+            <div class="text-center">
+            <h1>Poster votre annonce</h1>
+            <p class="text-xs">Tous les champs doivent être renseignés</p>
+            </div>
         </x-slot>
 
 
@@ -81,19 +84,19 @@
 
             <div class="mt-2">
             <label for="area" class="text-sm text-gray-500">Précisez l'arrondissement</label>
-            <input type="text" id="area" name='area' 
+            <input type="number" id="area" name='area' min="1" max="20"
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
             </div>
 
             <div class="mt-2">
-            <label for="people" class="text-sm text-gray-500">Nombre de colocataires vivant dans la colocation</label>
+            <label for="people" class="text-sm text-gray-500">Nombre de locataires vivant dans la colocation</label>
             <input type="text" id="people" name='people' 
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
             </div>
 
             <div class="mt-2">
             <label for="rent" class="text-sm text-gray-500">Loyer mensuel hors charges</label>
-            <input type="text" id="rent" name='rent' 
+            <input type="text" id="rent" name='rent'
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
             </div>
 
@@ -104,6 +107,13 @@
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
             </textarea>
             </div>
+
+{{-- 
+            <div class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
+            <label for="movein" class="text-sm text-gray-500">Date d'emménagement possible :</label>
+            <input type="date" id="movein" name="movein" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+            <span class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full"></span>
+            </div> --}}
 
 
             <div class="mt-2">

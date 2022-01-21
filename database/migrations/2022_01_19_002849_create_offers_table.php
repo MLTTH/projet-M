@@ -18,6 +18,7 @@ class CreateOffersTable extends Migration
             $table->string('title');
             $table->integer('people');
             $table->integer('rent');
+            $table->integer('area');
             $table->string('squaremeter');            
             $table->longText('long_desc');
             $table->timestamps();

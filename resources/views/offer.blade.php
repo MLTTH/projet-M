@@ -9,29 +9,34 @@
     <div class="w-1/2 rounded bg-white ml-2 p-4 shadow relative">
 
 
-    {{-- Allow logged in user to modify and delete his own add --}}
-        @if(Auth::id()==$offer->user->id)
-            <div class="flex m-4">
-            <a href="/edit/{{$offer->id}}">
-                <div class="bg-blue-500 rounded-full shadow text-xs text-white ">Modifier</div>
-            </a>
-            <a href="/delete/{{$offer->id}}">
-                <div class="bg-blue-500 rounded-full shadow text-xs text-white ">Supprimer</div>
-            </a>
-            </div>
-        @endif
+      
+            
+ {{-- Allow logged in user to modify and delete his own add --}}
+ @if(Auth::id()==$offer->user->id)
+ <div class="flex justify-start">
+ <a class ="m-1 rounded px-4 py-2 bg-green-500 shadow"href="/edit/{{$offer->id}}">
+     <div class="text-white font-bold text-sm ">Modifier</div>
+ </a>
+ <a class ="m-1 rounded px-4 py-2 bg-green-500 shadow"href="/delete/{{$offer->id}}">
+     <div class="text-white font-bold text-sm ">Supprimer</div>
+ </a>
+ </div>
+@endif
+      
+   
         <div class="p-4">
             <div class="font-semibold">{{$offer->title}}</div>
-            <div class="text-sm text-gray-500">{{$offer->people}}</div>
-            <div class="text-sm text-gray-500">{{$offer->rent}}</div>
-            <div class="text-sm text-gray-500">{{$offer->squaremeter}}</div>
+           
+
+            {{-- TEST --}}
+            <div class="text-sm text-gray-500 py-2">{{$offer->user->name}} propose une chambre dans un appartement de {{$offer->squaremeter}}m2 situé dans le {{$offer->area}}ème arrondissement de Paris pour un loyer mensuel HC de {{$offer->rent}}€.<br>La colocation est composée au total de {{$offer->people}} personnes.</div>
+       
+            <div class="text-sm font-semibold text-gray py-2">Quelques mots de votre/vos futur/s colocataires : </div>
             <div class="text-sm text-gray-500">{{$offer->long_desc}}</div>
+           
         </div>
-        <div class="border-t px-4 py-2">
-        {{-- ROOMATE INFO --}}
-            <div class="text-sm font-semibold text-gray">Proposé par :</div>
-            <div class="text-sm text-gray-500">{{$offer->user->name}}</div>
-        </div>
+
+        {{-- <div class="border-t px-4 py-2"> --}}
 
         <div class="px-4 py-2">
             <div class="text-sm font-semibold text-gray">Téléphone :</div>
@@ -50,12 +55,24 @@
             <div class="text-sm text-gray-500">******@**********.***</div>
             @endauth
         </div>
+        <div class="bg-gray-100 p-10">
+            <h4 class="text-4x1 font-extrabold mb-10">En bref</h4>
+            <span class="inline-grid grid-cols-3 gap-7">
+                <div><svg class="w-6 h-6 justify-items-center" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.736 6.979C9.208 6.193 9.696 6 10 6c.304 0 .792.193 1.264.979a1 1 0 001.715-1.029C12.279 4.784 11.232 4 10 4s-2.279.784-2.979 1.95c-.285.475-.507 1-.67 1.55H6a1 1 0 000 2h.013a9.358 9.358 0 000 1H6a1 1 0 100 2h.351c.163.55.385 1.075.67 1.55C7.721 15.216 8.768 16 10 16s2.279-.784 2.979-1.95a1 1 0 10-1.715-1.029c-.472.786-.96.979-1.264.979-.304 0-.792-.193-1.264-.979a4.265 4.265 0 01-.264-.521H10a1 1 0 100-2H8.017a7.36 7.36 0 010-1H10a1 1 0 100-2H8.472c.08-.185.167-.36.264-.521z" clip-rule="evenodd"></path></svg>
+                <span>{{$offer->rent}}€</span>
+                </div>
+                <div><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg><span>{{$offer->squaremeter}}m2</span></div>
+                <div><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path></svg><span>{{$offer->people}}</span></div>
+              </span>
+        </div>
 
         {{-- RENT $$$--}}
         <div class="absolute bottom-0 right-0 m-6 rounded-full px-4 py-2 bg-green-500">
             <div class="text-white font-bold text-sm">{{$offer->rent}}</div>
         </div>
+
     </div>
 </div>
+
 
 </x-custom-base-layout>

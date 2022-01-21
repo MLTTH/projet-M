@@ -32,25 +32,31 @@ class OffersController extends Controller
         //validate the inputs https://laravel.com/docs/8.x/validation#available-validation-rules
         $request->validate([
             'title'=>'required',
+            'area'=>'required',
             'people'=>'required|numeric',
             'rent'=>'required|numeric',
             'squaremeter'=>'required|numeric',
             'desc-full'=>'required',
+            // 'movein'=>'required',
             'img'=>'required',
         ], [
             'title.required' => 'Merci de renseigner le titre',
+            'area.required' => 'Merci de renseigner un arrondissement',
             'people.required' => 'Sélectionnez le nombre de colocataires',
             'rent.required' => 'Entrez un loyer',
             'squaremeter.required' => 'Renseignez le taille du logement',
             'desc-full.required' => 'Décrivez la colocation',
+            // 'movein' => 'Merci de renseigner la date à laquelle la chambre est libre',
             'img.required' => 'Enregistrez une image',
         ], 
         [
             'title'=>'titre',
+            'area'=>'arrondissement',
             'people'=>'nombre de colocataire',
             'rent'=>'loyer mensuel HC',
             'squaremeter'=>'taille du logement en m2',
             'desc-full'=>'description de la colocation',
+            // 'movin'=>'date à laquelle la chambre est libre',
             'img'=>'image',
         ]);
 
@@ -61,10 +67,12 @@ class OffersController extends Controller
         //Insert data into the offers table
         $offer = new Offer();
         $offer->title=$request->input('title');
+        $offer->area=$request->input('area');
         $offer->people=$request->input('people');
         $offer->rent=$request->input('rent');
         $offer->long_desc=$request->input('desc-full');
         $offer->squaremeter=$request->input('squaremeter');
+        // $offer->date=$request->input('date');
         $offer->image_url=$path;
         $offer->user_id=Auth::id();
 
@@ -84,8 +92,12 @@ class OffersController extends Controller
 
     public function update(Request $request,$id){
     $request->validate([
-        'rent'=>'numeric'
+        'rent'=>'numeric',
+        'area'=>'numeric',
+        'squaremeter' => 'numeric',
+        'people'=>'numeric'
     ]); 
+
     $offer = Offer::find($id);
     if($request->hasFile('img')) {
         $path=$request->file('img')->store('offer_images');
@@ -94,6 +106,10 @@ class OffersController extends Controller
     if(!empty($request->input('title')))
     {
         $offer->title=$request->input('title');
+    }
+    if(!empty($request->input('area')))
+    {
+        $offer->area=$request->input('area');
     }
 
     if(!empty($request->input('people')))
@@ -115,6 +131,11 @@ class OffersController extends Controller
     {
         $offer->title=$request->input('squaremeter');
     }
+
+    // if(!empty($request->input('date')))
+    // {
+    //     $offer->title=$request->input('date');
+    // }
 
     $offer->save();
     return redirect('/offer/'.$offer-id);
