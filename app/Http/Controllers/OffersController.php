@@ -131,11 +131,6 @@ class OffersController extends Controller
         $offer->squaremeter=$request->input('squaremeter');
     }
 
-    // if(!empty($request->input('date')))
-    // {
-    //     $offer->title=$request->input('date');
-    // }
-
     $offer->save();
     return redirect('/offer/'.$offer->id);
 }

@@ -39,7 +39,7 @@
         <div class="p-4">
             <div class="uppercase text-cyan-600  font-semibold font-bold text-xl">{{$offer->title}}</div>
             {{-- TEST --}}
-            <div class="text-sm text-gray-500 py-2">{{$offer->user->name}} propose une chambre dans un appartement de {{$offer->squaremeter}}m2 situé dans le {{$offer->area}}ème arrondissement de Paris pour un loyer mensuel HC de {{$offer->rent}}€.<br>La colocation est composée au total de {{$offer->people}} personnes.</div>
+            <div class="text-sm text-gray-500 py-2">{{$offer->user->name}}, {{$offer->user->age}} ans, propose une chambre dans un appartement de {{$offer->squaremeter}}m2 situé dans le {{$offer->area}}ème arrondissement de Paris pour un loyer mensuel HC de {{$offer->rent}}€.<br>La colocation est composée au total de {{$offer->people}} personnes.</div>
        
             <div class="uppercase text-sm font-semibold text-gray-700 py-2">Description : </div>
             <div class="text-sm text-gray-500">{{$offer->long_desc}}</div>
