@@ -8,31 +8,70 @@
         </h1>
 
         {{-- NAV --}}
-        <div class="text-sm my-3 opacity-80">    
-          <div> 
+        {{-- <div class="text-sm my-3 opacity-80">    
+          <> 
           @if (Route::has('login'))
           <div>
               @auth
               <a href="{{ url('/add') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">Poster une annonce</a>
               <a href="{{ url('/dashboard') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">Tableau de bord</a>
-              <form class="py-2 px-3 text-red-500" method="POST" action="{{ route('logout') }}">
-                  @csrf
-                          <x-dropdown-link :href="route('logout')"
-                                  onclick="event.preventDefault();
-                                              this.closest('form').submit();">
-                              {{ __('Log Out') }}
-                          </x-dropdown-link>
-                      </form>
+              <div class="flex justify-center m-2">
+              <form method ="POST" action="{{ route('logout') }}">
+                @csrf
+              <input type="submit" value="Déconnexion" class="uppercase m-2 rounded px-4 py-2 bg-slate-200 shadow hover:bg-slate-300 text-cyan-600 text-sm" />
+              </form>
                       @else
                       <a href="{{ route('login') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">Se connecter</a>
                       @if (Route::has('register'))
                       <a href="{{ route('register') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">S'enregistrer</a>
                       @endif
                   @endauth
+                </div>
           </div>
           @endif
-      </div>
-      </div>
+    
+        </div> --}}
 
       </div>
+</div>
+
+<div>    
+
+  @if (Route::has('login'))
+  <div class="flex justify-items-start">
+      @auth
+      <div>
+        <a href="{{ url('/add') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">Poster une annonce</a>
+      </div>
+      <div>
+        <a href="{{ url('/dashboard') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">Tableau de bord</a>
+      </div>
+      <div>
+        <form method ="POST" action="{{ route('logout') }}">
+        @csrf
+        <input type="submit" value="Déconnexion" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700" />
+        </form>
+              @else
+              <a href="{{ route('login') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">Se connecter</a>
+              @if (Route::has('register'))
+              <a href="{{ route('register') }}" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700">S'enregistrer</a>
+              @endif
+          @endauth
+      </div>
+  </div>
+  @endif
+
+</div>
+
+
+{{-- TEST --}}
+<div>
+@if (Route::has('login'))
+@auth
+<form method ="POST" action="{{ route('logout') }}">
+  @csrf
+  <input type="submit" value="Déconnexion" class="py-2 px-3 bg-cyan-600 text-slate-50 rounded hover:bg-sky-700" />
+  </form>
+  @endauth
+@endif
 </div>

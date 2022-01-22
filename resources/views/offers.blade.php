@@ -1,7 +1,7 @@
 <x-custom-base-layout>
 
-
 @include('components/custom-header-pic-bg')
+
 <div class="my-9">  
 <h1 class="text-center text-amber-500 text-5xl font-bold">Nos annonces</h1>
 </div>
@@ -19,6 +19,8 @@
 </div>
 </div>
 
+
+@include('components/custom-card')
 
 
 {{-- pagination --}}

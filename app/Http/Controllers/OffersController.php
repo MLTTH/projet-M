@@ -113,22 +113,22 @@ class OffersController extends Controller
 
     if(!empty($request->input('people')))
     {
-        $offer->title=$request->input('people');
+        $offer->people=$request->input('people');
     }
 
     if(!empty($request->input('rent')))
     {
-        $offer->title=$request->input('rent');
+        $offer->rent=$request->input('rent');
     }
 
     if(!empty($request->input('desc-full')))
     {
-        $offer->title=$request->input('desc-full');
+        $offer->long_desc=$request->input('desc-full');
     }
 
     if(!empty($request->input('squaremeter')))
     {
-        $offer->title=$request->input('squaremeter');
+        $offer->squaremeter=$request->input('squaremeter');
     }
 
     // if(!empty($request->input('date')))
