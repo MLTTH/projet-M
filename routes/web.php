@@ -30,7 +30,7 @@ Route::post('/offer', [OffersController::class, 'store']);
 
 Route::get('edit/{id}', [OffersController::class, 'edit'])->middleware('auth');
 
-Route::post('update/{id}', [OffersController::class, 'update'])->middleware(['auth', 'verify_user']);//send change after editing
+Route::post('update/{id}', [OffersController::class, 'update'])->middleware('auth');//send change after editing
 
 Route::post('delete/{id}', [OffersController::class, 'destroy'])->middleware('auth');
 

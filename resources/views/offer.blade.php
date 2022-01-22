@@ -25,9 +25,13 @@
  <a class ="m-1 rounded px-4 py-2 bg-cyan-600 shadow hover:bg-sky-700"href="/edit/{{$offer->id}}">
      <div class="text-white font-bold text-sm ">Modifier</div>
  </a>
- <a class ="m-1 rounded px-4 py-2 bg-red-300 shadow hover:bg-red-400"href="/delete/{{$offer->id}}">
+ <form method ="POST" action="/delete/{{$offer->id}}">
+    @csrf
+ {{-- <a class ="m-1 rounded px-4 py-2 bg-red-300 shadow hover:bg-red-400"href="/delete/{{$offer->id}}">
      <div class="text-white font-bold text-sm ">Supprimer</div>
- </a>
+ </a> --}}
+ <input type="submit" value="Delete" class="bg-red-300 ml-1 rounded-full" />
+</form>
  </div>
 @endif
       

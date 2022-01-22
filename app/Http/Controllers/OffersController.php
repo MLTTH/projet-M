@@ -93,7 +93,6 @@ class OffersController extends Controller
     public function update(Request $request,$id){
     $request->validate([
         'rent'=>'numeric',
-        'area'=>'numeric',
         'squaremeter' => 'numeric',
         'people'=>'numeric'
     ]); 
@@ -102,7 +101,7 @@ class OffersController extends Controller
     if($request->hasFile('img')) {
         $path=$request->file('img')->store('offer_images');
     }
-    //make sure inputs are not empty
+    //make sure inputs are not empty and replace old value
     if(!empty($request->input('title')))
     {
         $offer->title=$request->input('title');
@@ -138,7 +137,7 @@ class OffersController extends Controller
     // }
 
     $offer->save();
-    return redirect('/offer/'.$offer-id);
+    return redirect('/offer/'.$offer->id);
 }
 
     // Delete an add

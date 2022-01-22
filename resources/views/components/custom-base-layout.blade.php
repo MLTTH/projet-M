@@ -15,10 +15,11 @@
 
     {{-- FOOTER --}}
     <footer class="md:flex justify-center">
-        <div class="md:grid grid-rows-{4} grid-flow-col gap-4 m-4 max-w-md">
-            <div class="mt-6 py-2 px-3 text-sky-700 font-bold text-sm">A PROPOS</div>
+        <div class="md:grid grid-rows-{3} grid-flow-col gap-4 m-4 max-w-md">
+
             <div class="mt-6 py-2 px-3 text-sky-700 font-bold text-sm">CONTACT</div>
-            <div class="mt-6 py-2 px-3 text-sky-700 font-bold text-sm">DESIGNED BY THI</div>
+            <a href="{{ url('/') }}"><img class="w-auto h-24" src="{{asset('image/logo.png')}}" alt="" srcset=""></img>
+            </a>
             <div class="mt-6 py-2 px-3 text-sky-700 font-bold text-sm">&copy;2022</div>
         </div>
         </footer>

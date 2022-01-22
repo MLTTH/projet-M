@@ -7,7 +7,7 @@
         <img src="{{$o->image_url}}" class="h-72 object-cover w-full">
         {{-- CARD DESCRIPTION --}}
         <div class="p-4">
-            <div class="uppercase md:normal-case text-sm font-semibold">{{$o->title}}
+            <div class="uppercase text-sm font-bold text-gray-600">{{$o->title}}
             </div>
         </div>
         <div>
