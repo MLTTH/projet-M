@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  
-        <title>La bonne coloc'</title>
+    <link rel="stylesheet" href="css/animate.css">
+<title>La bonne coloc'</title>
 </head>
 <body class="bg-gray-50">
 
@@ -23,5 +23,12 @@
             <div class="mt-6 py-2 px-3 text-sky-700 font-bold text-sm">&copy;2022</div>
         </div>
         </footer>
+{{-- WOW ANIMATE --}}
+
+
+<script src="js/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>
 </body>
 </html>
