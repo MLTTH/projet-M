@@ -9,35 +9,23 @@
         @if (Route::has('login'))
         <div>
             @auth
-            <div>
-            <a href="{{ url('/add') }}" class="py-2 px-3 text-cyan-600 font-bold">Poster une annonce</a>
-            <a href="{{ url('/dashboard') }}" class="py-2 px-3 text-cyan-600 font-bold">Tableau de bord</a>
-            {{-- <form class="py-2 px-3 " method="POST" action="{{ route('logout') }}">
-            
-                
+            <div class="flex justify-right">
+            <div><a href="{{ url('/add') }}" class="py-2 px-3 bg-amber-500 hover:bg-amber-400 rounded font-semibold">Poster une annonce</a></div>
+            <div><a href="{{ url('/dashboard') }}" class="py-5 px-3 font-semibold hover:text-gray-800">Tableau de bord</a></div>
+
+            <div><form method ="POST" action="{{ route('logout') }}">
                 @csrf
-                
-                <x-dropdown-link :href="route('logout')"
-                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Déconnexion') }}
-                        </x-dropdown-link>
-            </form> --}}
+             <input type="submit" value="Déconnexion" class="px-3 font-semibold hover:text-gray-800" />
+            </form></div>
 
 
-            <form method ="POST" action="{{ route('logout') }}">
-                @csrf
-             <input type="submit" value="Déconnexion" class="m-1 rounded px-4 py-2 bg-cyan-600 shadow hover:bg-sky-700 text-white font-bold text-sm" />
-            </form>
-
-
-                    @else
-                    <a href="{{ route('login') }}" class="py-5 px-3">Se connecter</a>
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="py-2 px-3 bg-yellow-400 text-yellow-800 rounded">S'enregistrer</a>
-                    @endif
-                    @endauth
-        </div>
+            @else
+            <a href="{{ route('login') }}" class="py-5 px-3 font-semibold hover:text-gray-800">Se connecter</a>
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="py-2 px-3 bg-amber-500 hover:bg-amber-400 rounded font-semibold">S'enregistrer</a>
+            @endif
+            @endauth
+            </div>
         </div>
         @endif
     </div>

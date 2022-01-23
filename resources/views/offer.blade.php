@@ -27,9 +27,7 @@
  </a>
  <form method ="POST" action="/delete/{{$offer->id}}">
     @csrf
- {{-- <a class ="m-1 rounded px-4 py-2 bg-red-300 shadow hover:bg-red-400"href="/delete/{{$offer->id}}">
-     <div class="text-white font-bold text-sm ">Supprimer</div>
- </a> --}}
+
  <input type="submit" value="Supprimer" class="m-1 rounded px-4 py-2 bg-cyan-600 shadow hover:bg-sky-700 text-white font-bold text-sm" />
 </form>
  </div>

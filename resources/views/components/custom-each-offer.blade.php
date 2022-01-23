@@ -1,9 +1,8 @@
-   {{-- CARD --}}
+   {{-- PREVIEW INFO CARD - homepage & dashboard --}}
    <div class="lg:grid grid-cols-4 gap-4 p-4 mb-8">
     @foreach($offers as $o)
     <a href="/offer/{{$o->id}}">
     <div class="mb-10 md:mb-0m4 bg-white rounded shadow overflow-hidden ">
-        {{-- <img src="" alt=""> --}}
         <img src="{{$o->image_url}}" class="h-72 object-cover w-full">
         {{-- CARD DESCRIPTION --}}
         <div class="p-4">
