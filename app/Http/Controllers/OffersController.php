@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offer;
+use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OffersController extends Controller
 {
+
     //Fetch all offers items
     public function index(){
         $offers = Offer::orderBy('created_at', 'desc')->paginate(16);
@@ -33,27 +35,30 @@ class OffersController extends Controller
         $request->validate([
             'title'=>'required',
             'area'=>'required',
-            'people'=>'required|numeric',
+            'house.people'=>'required|numeric',
             'rent'=>'required|numeric',
+            'house.squaremeter'=>'required|numeric',
             'squaremeter'=>'required|numeric',
             'desc-full'=>'required',
-            // 'movein'=>'required',
+            'checkin_date'=>'required|date|after:today',
             'img'=>'required',
         ], [
             'title.required' => 'Merci de renseigner le titre',
             'area.required' => 'Merci de renseigner un arrondissement',
-            'people.required' => 'Sélectionnez le nombre de colocataires',
+            'house.people.required' => 'Sélectionnez le nombre de colocataires',
             'rent.required' => 'Entrez un loyer',
-            'squaremeter.required' => 'Renseignez le taille du logement',
+            'squaremeter.required' => 'Renseignez le taille de la chambre',
+            'house.squaremeter.required' => 'Renseignez le taille du logement',
             'desc-full.required' => 'Décrivez la colocation',
-            // 'movein' => 'Merci de renseigner la date à laquelle la chambre est libre',
+            'checkin_date' => 'Merci de renseigner la date à laquelle la chambre est libre',
             'img.required' => 'Enregistrez une image',
         ], 
         [
             'title'=>'titre',
             'area'=>'arrondissement',
-            'people'=>'nombre de colocataire',
+            'house.people'=>'nombre de colocataire',
             'rent'=>'loyer mensuel HC',
+            'squaremeter'=>'taille du logement en m2',
             'squaremeter'=>'taille du logement en m2',
             'desc-full'=>'description de la colocation',
             // 'movin'=>'date à laquelle la chambre est libre',
@@ -68,23 +73,31 @@ class OffersController extends Controller
         $offer = new Offer();
         $offer->title=$request->input('title');
         $offer->area=$request->input('area');
-        $offer->people=$request->input('people');
         $offer->rent=$request->input('rent');
         $offer->long_desc=$request->input('desc-full');
         $offer->squaremeter=$request->input('squaremeter');
-        // $offer->date=$request->input('date');
+        $offer->checkin_date=$request->input('checkin_date');
+        $offer->is_furnished=$request->has('is_furnished');
         $offer->image_url=$path;
         $offer->user_id=Auth::id();
 
+        $house = new House();
+        $house->people=$request->input('house.people');
+        $house->squaremeter=$request->input('house.squaremeter');
+
+       
         //save into the table
+        
+        $offer->house()->associate($house);
         $offer->save();
 
         //redirect to the offer
         return redirect('/offer/' .$offer->id);
 
+
     }
 
-    // edit own adds
+    // EDIT own adds
     public function edit($id){
     $offer=Offer::find($id); //call find fct of the Model
     return view('edit')->with('offer',$offer);
@@ -135,7 +148,7 @@ class OffersController extends Controller
     return redirect('/offer/'.$offer->id);
 }
 
-    // Delete an add
+    // DELETE an add
     public function destroy($id){
         $offer=Offer::find($id);
         $offer->delete();

@@ -35,7 +35,13 @@
             </div>
 
             <div class="mt-2">
-            <label for="squaremeter" class="text-sm text-gray-500">Superficie du logement</label>
+            <label for="house-squaremeter" class="text-sm text-gray-500">Superficie du logement</label>
+            <input type="text" id="house-squaremeter" name='house[squaremeter]' 
+            class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
+            </div>
+
+            <div class="mt-2">
+            <label for="squaremeter" class="text-sm text-gray-500">Superficie de la chambre</label>
             <input type="text" id="squaremeter" name='squaremeter' 
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
             </div>
@@ -47,8 +53,8 @@
             </div>
 
             <div class="mt-2">
-            <label for="people" class="text-sm text-gray-500">Nombre de locataires vivant dans la colocation</label>
-            <input type="text" id="people" name='people' 
+            <label for="house-people" class="text-sm text-gray-500">Nombre de locataires vivant dans la colocation</label>
+            <input type="text" id="house-people" name='house[people]' 
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
             </div>
 
@@ -66,6 +72,17 @@
             </textarea>
             </div>
 
+            <div class="mt-2">
+            <label for="is-furnished" class="text-sm text-gray-500">La chambre est-elle meublée ?</label>
+            <input type="checkbox" id="is-furnished" name='is_furnished'
+            class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
+            </div>
+
+            <div class="mt-2">
+            <label for="checkin-date" class="text-sm text-gray-500">Date</label>
+            <input type="date" id="checkin-date" name='checkin_date'
+            class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full">
+            </div>
 
             <div class="mt-2">
             <label for="img" class="text-sm text-gray-500">Chargez une photo</label>
