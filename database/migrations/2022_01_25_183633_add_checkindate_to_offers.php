@@ -27,7 +27,7 @@ class AddCheckindateToOffers extends Migration
     public function down()
     {
         Schema::table('offers', function (Blueprint $table) {
-            //
+            $table->date('checkin_date')->nullable();
         });
     }
 }

@@ -16,7 +16,8 @@ class AlterOffersTable extends Migration
         Schema::table('offers', function (Blueprint $table) {
             $table->boolean('is_furnished');
             $table->dropColumn('people');
-            $table->unsignedBigInteger('house_id');
+            $table->unsignedBigInteger('house_id')->nullable();//
+            $table->date('checkin_date')->nullable();//
             $table->foreign('house_id')->references('id')->on('houses');
             $table->foreign('user_id')->references('id')->on('users');
         });

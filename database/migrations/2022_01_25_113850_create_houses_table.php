@@ -16,7 +16,7 @@ class CreateHousesTable extends Migration
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->boolean('is_flat');
+            // $table->boolean('is_flat');
             $table->integer('squaremeter');
             $table->integer('people');
         });

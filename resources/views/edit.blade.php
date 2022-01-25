@@ -27,11 +27,6 @@
             @csrf
 
 
-            <div class="mt-2">
-            <label for="title" class="text-sm text-gray-500">Titre de l'annonce</label>
-            <input type="text" id="title" name='title' 
-            class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 w-full" value="{{$offer->title}}">
-            </div>
 
             <div class="mt-2">
             <label for="squaremeter" class="text-sm text-gray-500">Superficie du logement</label>
@@ -77,5 +72,6 @@
             </x-button>
         </div>
         </form>
+
     </x-form-container-card>
 </x-custom-base-layout>

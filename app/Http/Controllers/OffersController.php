@@ -59,7 +59,7 @@ class OffersController extends Controller
             'house.people'=>'nombre de colocataire',
             'rent'=>'loyer mensuel HC',
             'squaremeter'=>'taille du logement en m2',
-            'squaremeter'=>'taille du logement en m2',
+            'house.squaremeter'=>'taille du logement en m2',
             'desc-full'=>'description de la colocation',
             // 'movin'=>'date à laquelle la chambre est libre',
             'img'=>'image',
@@ -85,11 +85,15 @@ class OffersController extends Controller
         $house->people=$request->input('house.people');
         $house->squaremeter=$request->input('house.squaremeter');
 
+
        
         //save into the table
-        
-        $offer->house()->associate($house);
-        $offer->save();
+    //   SOLUTION 1
+    
+    $house->save();
+    $offer->house()->associate($house);
+    $offer->save();
+        // $house->offers()->save($offer);
 
         //redirect to the offer
         return redirect('/offer/' .$offer->id);
@@ -107,7 +111,8 @@ class OffersController extends Controller
     $request->validate([
         'rent'=>'numeric',
         'squaremeter' => 'numeric',
-        'people'=>'numeric'
+        'people'=>'numeric',
+        
     ]); 
 
     $offer = Offer::find($id);
