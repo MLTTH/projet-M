@@ -17,4 +17,8 @@ class Offer extends Model
     {
         return $this->belongsTo(House::class);
     }
+
+    protected $casts = [
+        'is_furnished' => 'boolean',
+    ];
 }

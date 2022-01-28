@@ -18,8 +18,9 @@ class OffersController extends Controller
 
 
     //Fetch own offers to display on own dashboard
+    //user & id of the user logged in are matching
     public function showOwnOffers(){
-        $offers = Offer::where('user_id',Auth::id())->orderBy('created_at','desc')->get(); //user & id of the user logged in are matching
+        $offers = Offer::where('user_id',Auth::id())->orderBy('created_at','desc')->get(); 
         return view('dashboard')->with('offers',$offers);
     }
 

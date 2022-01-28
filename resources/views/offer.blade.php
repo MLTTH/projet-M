@@ -36,11 +36,12 @@
    
         <div class="p-4">
             <div class="uppercase text-cyan-600  font-semibold font-bold text-xl">{{$offer->title}}</div>
-            <div class="text-sm text-gray-500 py-2">{{$offer->user->name}}, {{$offer->user->age}} ans, propose une chambre de {{$offer->squaremeter}}dans un appartement de {{$offer->house->squaremeter}}m2 situé dans le {{$offer->area}}ème arrondissement de Paris pour un loyer mensuel HC de {{$offer->rent}}€/mois.<br>La colocation est composée au total de {{$offer->house->people}} personnes.</div>
-       
+            <div class="text-sm text-gray-500 py-2">{{$offer->user->name}}, {{$offer->user->age}} ans, propose une chambre de {{$offer->squaremeter}}m2 dans un appartement de {{$offer->house->squaremeter}}m2 situé dans le {{$offer->area}}ème arrondissement de Paris pour un loyer mensuel HC de {{$offer->rent}}€/mois.<br>La colocation est composée au total de {{$offer->house->people}} personnes.</div>
+            <div class="text-sm text-gray-500">Chambre meublé : {{ $offer->is_furnished ? 'OUI' : 'NON' }}</div>
+            
+            
             <div class="uppercase text-sm font-semibold text-gray-700 py-2">Description : </div>
             <div class="text-sm text-gray-500">{{$offer->long_desc}}</div>
-           
         </div>
 
         {{-- <div class="border-t px-4 py-2"> --}}
@@ -75,7 +76,7 @@
 
         {{-- RENT $$$--}}
         <div class="absolute bottom-0 right-0 m-6 rounded-full px-4 py-2 bg-amber-500">
-            <div class="text-white font-bold text-xl">{{$offer->checkin_date}}</div>
+            <div class="text-white font-bold text-lg">Disponible le : </span>{{$offer->checkin_date}}</div>
         </div>
 
     </div>

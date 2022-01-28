@@ -14,7 +14,8 @@ class AlterOffersTable extends Migration
     public function up()
     {
         Schema::table('offers', function (Blueprint $table) {
-            $table->boolean('is_furnished');
+            // $table->boolean('is_furnished');
+            $table->boolean('is_furnished')->default(0);
             $table->dropColumn('people');
             $table->unsignedBigInteger('house_id')->nullable();//
             $table->date('checkin_date')->nullable();//
@@ -29,6 +30,5 @@ class AlterOffersTable extends Migration
      */
     public function down()
     {
-        //
     }
 }
